@@ -11,7 +11,7 @@ import java.util.Enumeration;
 @WebServlet(name="requestParamServlet",urlPatterns = "/request-param")
 public class RequestParamService extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("[전체 파라미터 조회] - start");
         Enumeration<String> parameterNames = req.getParameterNames();
         parameterNames.asIterator()
@@ -32,4 +32,15 @@ public class RequestParamService extends HttpServlet {
 
         resp.getWriter().write("ok");
     }
+
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String username = req.getParameter("username");
+//        String age = req.getParameter("age");
+//
+//        resp.setContentType("text/html");
+//        resp.setCharacterEncoding("UTF-8");
+//        resp.getWriter().write("username : "+ username + "<br />");
+//        resp.getWriter().write("age      : "+ age);
+//    }
 }
